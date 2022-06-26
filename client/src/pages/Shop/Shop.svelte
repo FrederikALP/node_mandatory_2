@@ -74,44 +74,4 @@
         border-radius: 0.25em;
         background-color: grey;
     }
-
-    .forumcontent {
-        border-collapse: collapse;
-        border-top: 20px;
-    }
-
-    .headerandsub {
-        border: solid black 1px;
-        border-radius: 0.25em;
-        margin-top: 10px;
-    }
-
-    .forumheader {        
-        background-color: grey;
-        border-bottom: solid black 1px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    .subforum {
-        background-color: lightgrey;
-        border-top: solid black 1px;
-        border-bottom: solid black 1px;
-        border-collapse: collapse;
-    }
-
-    table, tr, th {
-        border: solid black 1px;
-        border-collapse: collapse;
-        text-align: left;
-    }
-
-    td {
-        text-align: left;
-    }
-
-    table {
-        width: 50%;
-        margin: auto;
-    }
 </style>

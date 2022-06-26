@@ -13,7 +13,7 @@
 	import Shop from "./pages/Shop/Shop.svelte";
 
 	async function handleLogout() {
-		const response = await fetch($baseURL + '/api/logout');
+		const response = await fetch($baseURL + '/auth/logout');
 		const result = await response.json();
 		console.log(result);
         

@@ -18,12 +18,24 @@ import mongoose from "mongoose";
 //Rate-limit
 import rateLimit from "express-rate-limit";
 const baseLimiter = rateLimit({
-	windowMs: 10 * 60 * 1000, // 10 minutes
-	max: 70, // Limit each IP to 70 requests per `window` (here, per 15 minutes)
-	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    //the line below limits the window auth times, after 15 minutes the limit will be reset
+  windowMs: 15 * 60 * 1000, // 15 minutes
+    //The client is allowed to access 5 times
+  max: 100, // Limit each IP to 5 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+const authLimiter = rateLimit({
+    //the line below limits the window auth times, after 15 minutes the limit will be reset
+  windowMs: 15 * 60 * 1000, // 15 minutes
+    //The client is allowed to access 5 times
+  max: 5, // Limit each IP to 5 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 app.use(baseLimiter);
+app.use("/auth/", authLimiter);
 
 //Helmet
 import helmet from "helmet";

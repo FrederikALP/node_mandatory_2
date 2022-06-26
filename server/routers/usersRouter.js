@@ -47,7 +47,7 @@ router.patch("/api/users/:id", async (req, res) => {
 	}
 });
 
-router.post('/api/login', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
 	const { username, password } = req.body;
 	const user = await Users.findOne({ username }).lean();
 
@@ -66,7 +66,7 @@ router.post('/api/login', async (req, res) => {
 })
 
 
-router.post('/api/register', async (req, res) => {
+router.post('/auth/register', async (req, res) => {
     console.log(res.body); 
 	const { username, password: plainTextPassword, email } = req.body;
 
@@ -91,7 +91,7 @@ router.post('/api/register', async (req, res) => {
 });
 
 
-router.get("/api/logout", (req, res) => {
+router.get("/auth/logout", (req, res) => {
     if (req.session.loggedIn) {
         req.session.loggedIn = false;
         req.session.userID = undefined;

@@ -75,9 +75,6 @@ async function fetchUser() {
                  <p>Email: {profileUser.email}</p>
             {/if}
         </div>
-        <div class="postCount">
-            <p>Posts: {profileUser.postcount}</p>
-        </div>
     </div>
     <div class="userDescription">
         {#if profileUser.description}

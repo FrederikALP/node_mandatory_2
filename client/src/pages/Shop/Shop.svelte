@@ -12,11 +12,6 @@
         console.log(shops);
     };
 
-    function changeId(newid) {
-        //subid.set(newid)
-        localStorage.setItem("persistentid", newid);
-	};
-
     onMount(async () => {
         fetchShop()
     });
